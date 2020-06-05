@@ -1,0 +1,61 @@
+{
+  "name": "jovo-community-plugin-timezone",
+  "version": "1.0.0",
+  "description": "A Jovo Framework plugin for cross-platform timezone including defaults per country code.",
+  "main": "dist/src/index",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "tslint": "tslint -p tsconfig.json -c tslint.json",
+    "tsc": "tsc",
+    "rimraf": "rimraf ./dist",
+    "typedoc": "typedoc --out ./docs ./ --mode file",
+    "test": "jest"
+  },
+  "author": "Jovo Community",
+  "license": "MIT",
+  "homepage": "https://github.com/jovo-community/jovo-community-plugin-timezone#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jovo-community/jovo-community-plugin-timezone"
+  },
+  "bugs": {
+    "url": "https://github.com/jovo-community/jovo-community-plugin-timezone/issues"
+  },
+  "dependencies": {
+    "husky": "^4.2.3",
+    "jovo-core": "^3.0.11"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "@types/node": "^13.11.0",
+    "jest": "^25.2.7",
+    "rimraf": "^3.0.2",
+    "source-map-support": "^0.5.16",
+    "ts-jest": "^25.3.1",
+    "tslint": "^6.1.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typedoc": "^0.17.4",
+    "typescript": "^3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run tslint"
+    }
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testURL": "http://localhost/",
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
+  },
+  "files": [
+    "dist/src/**/*"
+  ]
+}
