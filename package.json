@@ -23,7 +23,9 @@
   },
   "dependencies": {
     "husky": "^4.2.3",
-    "jovo-core": "^3.0.11"
+    "jovo-core": "^3.0.11",
+    "jovo-platform-alexa": "^3.0.21",
+    "jovo-platform-bixby": "^3.0.19"
   },
   "devDependencies": {
     "@types/jest": "^25.2.1",
