@@ -1,14 +1,11 @@
 import { Jovo } from 'jovo-core';
 import type { BixbyRequest } from 'jovo-platform-bixby';
 import { AlexaSkill } from 'jovo-platform-alexa';
-import { ConversationalActionRequest } from 'jovo-platform-googleassistantconv/dist/src/core/ConversationalActionRequest';
-import { Device } from 'jovo-platform-googleassistantconv/dist/src/core/Interfaces';
+import { Device } from 'jovo-platform-googleassistantconv';
 
-export interface DeviceFull extends Device {
-  timeZone: {
+interface GoogleTimeZone {
     id: string;
     version: string;
-  }
 }
 
 export class TimeZone {
@@ -41,8 +38,9 @@ export class TimeZone {
 
       if (platformType === 'GoogleAction') {
 
-        const conversationalActionRequest = this.jovo.$request as ConversationalActionRequest
-        const timeZoneIfConversationalAction = (conversationalActionRequest?.device as DeviceFull)?.timeZone?.id;
+        const device = (this.jovo.$request as any)?.device as Device | undefined;
+        const timeZoneIfConversationalAction = device?.timeZone?.id;
+
 
         this.jovo.$session.$data.timeZone = timeZoneIfConversationalAction ? timeZoneIfConversationalAction :  this.getDefaultTimeZone();
 

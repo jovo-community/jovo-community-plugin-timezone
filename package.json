@@ -26,7 +26,7 @@
     "jovo-core": "^3.0.11",
     "jovo-platform-alexa": "^3.0.21",
     "jovo-platform-bixby": "^3.0.19",
-    "jovo-platform-googleassistantconv": "^3.6.0"
+    "jovo-platform-googleassistantconv": "^3.6.1"
   },
   "devDependencies": {
     "@types/jest": "^25.2.1",
