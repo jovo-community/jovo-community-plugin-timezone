@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "lib": [ "es2017" ],
+    "lib": ["es2017"],
     "module": "commonjs",
     "noImplicitAny": true,
     "removeComments": false,
@@ -11,14 +11,6 @@
     "target": "es2017",
     "sourceMap": true
   },
-  "include": [
-    "**/*.d.ts",
-    "src/**/*",
-    "test/**/*"
-  ],
-  "exclude": [
-    "dist/**/*",
-    "node_modules/**/*",
-    "**/*.spec.ts"
-  ]
+  "include": ["**/*.d.ts", "src/**/*", "test/**/*"],
+  "exclude": ["dist/**/*", "node_modules/**/*", "**/*.spec.ts"]
 }

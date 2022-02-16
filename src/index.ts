@@ -1,2 +1,1 @@
-
-export { TimeZonePlugin } from './TimeZonePlugin';
+export { TimeZonePlugin } from "./TimeZonePlugin";

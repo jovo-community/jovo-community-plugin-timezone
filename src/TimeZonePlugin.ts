@@ -1,12 +1,12 @@
-import { BaseApp, HandleRequest, Plugin, PluginConfig } from 'jovo-core';
-import { TimeZone } from './TimeZone';
+import { BaseApp, HandleRequest, Plugin, PluginConfig } from "jovo-core";
+import { TimeZone } from "./TimeZone";
 
 export interface Config extends PluginConfig {
-  defaultTimeZone?: string,
-  defaultByLocaleCountryCode?: object,
+  defaultTimeZone?: string;
+  defaultByLocaleCountryCode?: object;
 }
 
-declare module 'jovo-core/dist/src/core/Jovo' {
+declare module "jovo-core/dist/src/core/Jovo" {
   export interface Jovo {
     $timeZone: TimeZone;
   }
@@ -14,9 +14,8 @@ declare module 'jovo-core/dist/src/core/Jovo' {
 
 export class TimeZonePlugin implements Plugin {
   config: Config = {
-    defaultTimeZone: 'America/New_York'
+    defaultTimeZone: "America/New_York",
   };
-
 
   constructor(config?: Config) {
     if (config) {
@@ -28,7 +27,7 @@ export class TimeZonePlugin implements Plugin {
   }
 
   install(app: BaseApp) {
-    app.middleware('after.platform.init')!.use(this.initHandler.bind(this));
+    app.middleware("after.platform.init")!.use(this.initHandler.bind(this));
   }
 
   initHandler(handleRequest: HandleRequest) {
