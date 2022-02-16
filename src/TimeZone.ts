@@ -28,7 +28,11 @@ export class TimeZone {
       if (platformType === 'AlexaSkill') {
         try {
           const result = await (this.jovo.$alexaSkill! as AlexaSkill).$user.getTimezone();
-          this.jovo.$session.$data.timeZone = result;
+            if(result) {
+              this.jovo.$session.$data.timeZone = result;
+            } else {
+              this.jovo.$session.$data.timeZone = this.getDefaultTimeZone();
+            }
         } catch (error) {
           this.jovo.$session.$data.timeZone = this.getDefaultTimeZone();
         }
