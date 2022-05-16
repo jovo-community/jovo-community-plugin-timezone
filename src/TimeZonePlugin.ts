@@ -1,40 +1,35 @@
-import { BaseApp, HandleRequest, Plugin, PluginConfig } from "jovo-core";
-import { TimeZone } from "./TimeZone";
+import {
+  Jovo,
+  HandleRequest,
+  Plugin,
+  PluginConfig,
+  Extensible,
+  InvalidParentError,
+} from '@jovotech/framework';
+import { JovoTimeZone } from './JovoTimeZone';
 
-export interface Config extends PluginConfig {
-  defaultTimeZone?: string;
-  defaultByLocaleCountryCode?: object;
-}
-
-declare module "jovo-core/dist/src/core/Jovo" {
-  export interface Jovo {
-    $timeZone: TimeZone;
-  }
-}
-
-export class TimeZonePlugin implements Plugin {
-  config: Config = {
-    defaultTimeZone: "America/New_York",
+export interface TimeZonePluginConfig extends PluginConfig {
+  defaultTimeZone: string;
+  defaultTimeZoneByLocaleCountryCode?: {
+    [key: string]: string;
   };
+}
 
-  constructor(config?: Config) {
-    if (config) {
-      this.config = {
-        ...this.config,
-        ...config,
-      };
-    }
+export class TimeZonePlugin extends Plugin<TimeZonePluginConfig> {
+  constructor(config?: TimeZonePluginConfig) {
+    super(config);
   }
 
-  install(app: BaseApp) {
-    app.middleware("after.platform.init")!.use(this.initHandler.bind(this));
+  mount(extensible: Extensible) {
+    if (!(extensible instanceof HandleRequest)) {
+      throw new InvalidParentError(this.constructor.name, HandleRequest);
+    }
+    extensible.middlewareCollection.use('request.end', (jovo: Jovo) => {
+      jovo.$timeZone = new JovoTimeZone(this, jovo);
+    });
   }
 
-  initHandler(handleRequest: HandleRequest) {
-    const { jovo } = handleRequest;
-    if (!jovo) {
-      return;
-    }
-    jovo.$timeZone = new TimeZone(jovo);
+  getDefaultConfig(): TimeZonePluginConfig {
+    return { defaultTimeZone: 'America/New_York' };
   }
 }
