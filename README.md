@@ -3,6 +3,8 @@
 
 This plugin for the [Jovo Framework](https://github.com/jovotech/jovo-framework) `v4` allows you to easily add cross-platform time zone support including an overall default time zone if there is not a country-code-specific default.
 
+For the plugin that support Jovo v3, use [jovo-community-plugin-timezone](https://www.npmjs.com/package/jovo-community-plugin-timezone)
+
 ## Platforms
 
 The following platforms are supported:
@@ -27,13 +29,13 @@ const tz = await this.$timeZone.getTimeZone();
 Install the plugin into your Jovo project:
 
 ```sh
-npm install jovo-community-plugin-timezone
+npm install @jovo-community/jovo-community-plugin-timezone
 ```
 
 Register the plugin in `app.ts`:
 
 ```typescript
-import { TimeZonePlugin } from 'jovo-community-plugin-timezone';
+import { TimeZonePlugin } from '@jovo-community/jovo-community-plugin-timezone';
 
 const app = new App({
   // ...
@@ -57,7 +59,7 @@ const tz = await this.$timeZone.getTimeZone();
 You can set an overall default time zone fallback or defaults based on the country code portion of the locale that is sent with every request.
 
 ```typescript
-import { TimeZonePlugin } from 'jovo-community-plugin-timezone';
+import { TimeZonePlugin } from '@jovo-community/jovo-community-plugin-timezone';
 
 const app = new App({
   // ...

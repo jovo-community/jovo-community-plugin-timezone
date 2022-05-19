@@ -1,5 +1,5 @@
 {
-  "name": "jovo-community-plugin-timezone",
+  "name": "@jovo-community/jovo-community-plugin-timezone",
   "version": "4.0.0",
   "description": "A Jovo Framework plugin for cross-platform timezone including defaults per country code.",
   "main": "dist/cjs/index.js",
@@ -17,7 +17,8 @@
     "prettier": "prettier -w -l src test package.json",
     "eslint": "eslint src test --fix --ext .ts",
     "rimraf": "rimraf dist",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "publish": "npm publish --access public"
   },
   "author": "Jovo Community",
   "license": "MIT",
