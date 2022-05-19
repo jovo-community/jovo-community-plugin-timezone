@@ -9,7 +9,8 @@
     "tsc": "tsc",
     "rimraf": "rimraf ./dist",
     "typedoc": "typedoc --out ./docs ./ --mode file",
-    "test": "jest"
+    "test": "jest",
+    "publish": "npm publish"
   },
   "author": "Jovo Community",
   "license": "MIT",
