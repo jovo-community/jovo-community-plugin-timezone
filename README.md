@@ -8,6 +8,11 @@
 
 This plugin for the [Jovo Framework](https://github.com/jovotech/jovo-framework) allows you to easily add cross-platform time zone support including an overall default time zone if there is not a country-code-specific default.
 
+## Support
+This plugin supports Jovo v3. 
+
+For the plugin that supports Jovo v4 use [@jovo-community/jovo-community-plugin-timezone](https://www.npmjs.com/package/@jovo-community/jovo-community-plugin-timezone)
+
 ## Platforms
 
 The following platforms are supported:
