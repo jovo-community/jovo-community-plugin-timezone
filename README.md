@@ -29,13 +29,13 @@ const tz = await this.$timeZone.getTimeZone();
 Install the plugin into your Jovo project:
 
 ```sh
-npm install @jovo-community/jovo-community-plugin-timezone
+npm install @jovo-community/plugin-timezone
 ```
 
 Register the plugin in `app.ts`:
 
 ```typescript
-import { TimeZonePlugin } from '@jovo-community/jovo-community-plugin-timezone';
+import { TimeZonePlugin } from '@jovo-community/plugin-timezone';
 
 const app = new App({
   // ...
@@ -59,7 +59,7 @@ const tz = await this.$timeZone.getTimeZone();
 You can set an overall default time zone fallback or defaults based on the country code portion of the locale that is sent with every request.
 
 ```typescript
-import { TimeZonePlugin } from '@jovo-community/jovo-community-plugin-timezone';
+import { TimeZonePlugin } from '@jovo-community/plugin-timezone';
 
 const app = new App({
   // ...
@@ -79,6 +79,17 @@ const app = new App({
     // ...
   ],
 }
+```
+
+## Jovo Debugger
+If using the Jovo Debugger, you must add `$timeZone` to the list of properties the debugger ignores:
+
+```ts
+// app.dev.ts
+
+new JovoDebugger({
+  ignoredProperties: ['$app', '$handleRequest', '$platform', '$timeZone'],
+}),
 ```
 
 # License
