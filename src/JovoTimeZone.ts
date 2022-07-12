@@ -14,6 +14,11 @@ export class JovoTimeZone {
       return this.jovo.$session.data.timeZone;
     }
 
+    // Core/Web: Retrieve time zone from $request if set
+    if (this.jovo.$request.timeZone) {
+      this.jovo.$session.data.timeZone = this.jovo.$request.timeZone;
+    }
+
     // Alexa: Retrieve time zone from Alexa API and cache it in session data
     if (this.jovo.$alexa) {
       try {

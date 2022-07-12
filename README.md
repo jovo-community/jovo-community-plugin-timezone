@@ -11,6 +11,7 @@ The following platforms are supported:
 
 - Amazon Alexa
 - Google Assistant
+- Core/Web
 
 In the case of Amazon Alexa, after the first API call, the time zone is cached in [Session Data](https://www.jovo.tech/docs/data#session-data) at:
 
