@@ -1,6 +1,6 @@
 {
   "name": "@jovo-community/plugin-timezone",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "A Jovo Framework plugin for cross-platform timezone including defaults per country code.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm5/index.js",
