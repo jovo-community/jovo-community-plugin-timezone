@@ -30,9 +30,11 @@ export class TimeZone {
           this.jovo.$alexaSkill! as AlexaSkill
         ).$user.getTimezone();
 
-        this.jovo.$session.$data.timeZone = result
-          ? result
-          : this.getDefaultTimeZone();
+        if(result && typeof result === 'string') {
+          this.jovo.$session.$data.timeZone = result;
+        } else {
+          trow new Error('The Settings API did not return a valid timeZone.');  
+        }
       } catch (error) {
         this.jovo.$session.$data.timeZone = this.getDefaultTimeZone();
       }
